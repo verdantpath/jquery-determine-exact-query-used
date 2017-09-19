@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JQuery Determine Exact Query Used</title>
+
+</head>
+<body>
+<div>this is a div</div>
+
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script type="text/Javascript">
+(function($) {
+  $.fn.ShowQuery = function(i) {
+    alert("$(\""+ $(this).selector + "\", " + $(this).context +")");
+    if (i < 3) {
+      $($(this).selector, $(this).context).ShowQuery(i+1);
+    }
+  };
+  $("body div:eq(0)").ShowQuery(1);
+})(jQuery);
+
+</script>
+</body>
+</html>
